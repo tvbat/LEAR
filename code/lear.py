@@ -63,8 +63,8 @@ class ExperimentRun:
 
         self.final_vectors_filepath = self.config.get("output", "final_vectors")
 
-        print "SimLex score (Spearman's rho coefficient) of initial vectors is:\n" 
-        simlex_scores(distributional_vectors, self.distance_metric, self.order)
+        print "SimLex score (Spearman's rho coefficient) of initial vectors is:\n",\
+            simlex_scores(distributional_vectors, self.distance_metric, self.order)
 
         self.vocabulary = set(distributional_vectors.keys())
 
@@ -909,9 +909,8 @@ def run_experiment(config_filepath):
     
     current_experiment.attract_repel() 
     
-    print "\nSimLex score (Spearman's rho coefficient) of the final vectors is:"
-           
-    simlex_scores(current_experiment.word_vectors, current_experiment.distance_metric, current_experiment.order), "\n"
+    print "\nSimLex score (Spearman's rho coefficient) of the final vectors is:", \
+        simlex_scores(current_experiment.word_vectors, current_experiment.distance_metric, current_experiment.order), "\n"
 
     os.system("mkdir -p results")
     
